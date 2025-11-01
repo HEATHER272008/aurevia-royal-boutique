@@ -6,6 +6,8 @@ import { useCart } from '@/contexts/CartContext';
 import { useToast } from '@/hooks/use-toast';
 import { Star, ShoppingCart, Heart, Share2 } from 'lucide-react';
 import { ProductCard } from '@/components/ProductCard';
+import { ReviewSection } from '@/components/ReviewSection';
+import { Separator } from '@/components/ui/separator';
 
 const ProductDetail = () => {
   const { id } = useParams();
@@ -66,20 +68,25 @@ const ProductDetail = () => {
                 {product.category}
               </p>
               <h1 className="text-4xl font-display font-bold mb-4">{product.name}</h1>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`h-5 w-5 ${
-                        i < (product.rating || 0)
-                          ? 'fill-accent text-accent'
-                          : 'text-muted-foreground'
-                      }`}
-                    />
-                  ))}
+              <div className="flex items-center gap-3 mb-4">
+                <div className="flex items-center gap-2">
+                  <div className="flex">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className={`h-5 w-5 ${
+                          i < (product.rating || 0)
+                            ? 'fill-accent text-accent'
+                            : 'text-muted-foreground'
+                        }`}
+                      />
+                    ))}
+                  </div>
+                  <span className="font-semibold text-lg">{product.rating?.toFixed(1)}</span>
                 </div>
-                <span className="text-sm text-muted-foreground">(24 reviews)</span>
+                <span className="text-sm text-muted-foreground">
+                  ({product.reviewCount || 0} reviews)
+                </span>
               </div>
               <p className="text-3xl font-bold text-accent mb-6">${product.price}</p>
             </div>
@@ -163,16 +170,26 @@ const ProductDetail = () => {
           </div>
         </div>
 
+        {/* Reviews Section */}
+        <Separator className="my-12" />
+        <ReviewSection 
+          productRating={product.rating || 5} 
+          reviewCount={product.reviewCount || 0} 
+        />
+
         {/* Related Products */}
         {relatedProducts.length > 0 && (
-          <section>
-            <h2 className="text-3xl font-display font-bold mb-8">You May Also Like</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-              {relatedProducts.map((relatedProduct) => (
-                <ProductCard key={relatedProduct.id} product={relatedProduct} />
-              ))}
-            </div>
-          </section>
+          <>
+            <Separator className="my-12" />
+            <section>
+              <h2 className="text-3xl font-display font-bold mb-8">You May Also Like</h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                {relatedProducts.map((relatedProduct) => (
+                  <ProductCard key={relatedProduct.id} product={relatedProduct} />
+                ))}
+              </div>
+            </section>
+          </>
         )}
       </div>
     </div>

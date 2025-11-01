@@ -50,17 +50,22 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.category}
         </p>
         <h3 className="font-display font-semibold text-lg mb-2">{product.name}</h3>
-        <div className="flex items-center space-x-1 mb-2">
-          {[...Array(5)].map((_, i) => (
-            <Star
-              key={i}
-              className={`h-3 w-3 ${
-                i < (product.rating || 0)
-                  ? 'fill-accent text-accent'
-                  : 'text-muted-foreground'
-              }`}
-            />
-          ))}
+        <div className="flex items-center gap-2 mb-2">
+          <div className="flex items-center">
+            {[...Array(5)].map((_, i) => (
+              <Star
+                key={i}
+                className={`h-4 w-4 ${
+                  i < (product.rating || 0)
+                    ? 'fill-accent text-accent'
+                    : 'text-muted-foreground'
+                }`}
+              />
+            ))}
+          </div>
+          <span className="text-xs text-muted-foreground">
+            ({product.reviewCount || 0})
+          </span>
         </div>
         <p className="text-xl font-bold text-accent">${product.price}</p>
       </CardContent>

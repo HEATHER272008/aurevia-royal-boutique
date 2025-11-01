@@ -8,6 +8,7 @@ export interface Product {
   category: string;
   description?: string;
   rating?: number;
+  reviewCount?: number;
   inStock?: boolean;
 }
 

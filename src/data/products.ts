@@ -9,6 +9,7 @@ export const products: Product[] = [
     category: 'Rings',
     description: 'Elegant gold ring with crown design',
     rating: 5,
+    reviewCount: 42,
     inStock: true,
   },
   {
@@ -19,6 +20,7 @@ export const products: Product[] = [
     category: 'Necklaces',
     description: 'Luxurious diamond necklace',
     rating: 5,
+    reviewCount: 38,
     inStock: true,
   },
   {
@@ -29,6 +31,7 @@ export const products: Product[] = [
     category: 'Watches',
     description: 'Timeless luxury timepiece',
     rating: 4,
+    reviewCount: 56,
     inStock: true,
   },
   {
@@ -39,6 +42,7 @@ export const products: Product[] = [
     category: 'Bracelets',
     description: 'Delicate pearl bracelet',
     rating: 5,
+    reviewCount: 29,
     inStock: true,
   },
   {
@@ -49,6 +53,7 @@ export const products: Product[] = [
     category: 'Earrings',
     description: 'Stunning sapphire earrings',
     rating: 5,
+    reviewCount: 47,
     inStock: true,
   },
   {
@@ -59,6 +64,7 @@ export const products: Product[] = [
     category: 'Brooches',
     description: 'Classic rose design brooch',
     rating: 4,
+    reviewCount: 24,
     inStock: true,
   },
   {
@@ -69,6 +75,7 @@ export const products: Product[] = [
     category: 'Hair Accessories',
     description: 'Ornate gold hair comb',
     rating: 5,
+    reviewCount: 33,
     inStock: true,
   },
   {
@@ -79,6 +86,7 @@ export const products: Product[] = [
     category: 'Rings',
     description: 'Bold emerald centerpiece',
     rating: 5,
+    reviewCount: 51,
     inStock: true,
   },
 ];
